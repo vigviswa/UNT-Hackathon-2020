@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Hoard Warriors</title>
+    <style>
+      /* Remove the navbar's default margin-bottom and rounded borders */
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+
+      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+      .row.content {
+        height: 450px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        font-size: larger;
+        align-items: center;
+        margin: auto;
+      }
+      /* Set gray background color and 100% height */
+      .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+
+      /* Set black background color, white text and some padding */
+      footer {
+        background-color: #555;
+        color: white;
+        padding: 15px;
+      }
+
+      /* On small screens, set height to 'auto' for sidenav and grid */
+      @media screen and (max-width: 767px) {
+        .sidenav {
+          height: auto;
+          padding: 15px;
+        }
+
+        .row.content {
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Score</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#"
+                ><span class="glyphicon glyphicon-log-in"></span> Log Out</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
+          <h1 style="padding: 2px;color: rgb(22, 115, 207);" onclick="calc();">
+            BMI Value
+          </h1>
+          <p id="bmi" style="font-size: x-large;">0</p>
+
+          <p id="lastUpdated">0</p>
+          <h1 style="color: rgb(22,115,207);">Health Index</h1>
+          <p id="res" style="font-size: x-large;"></p>
+
+          <table style="text-align: center; border :1px solid black">
+            <tr>
+              <td style="color: rgb(154,13,209);">Range Index</td>
+
+              <td style="color: rgb(154, 13, 209);">Class</td>
+            </tr>
+            <tr>
+              <td>62 - 82</td>
+              <td>Obese</td>
+            </tr>
+            <tr>
+              <td>83 - 99</td>
+              <td>OverWeight</td>
+            </tr>
+            <tr>
+              <td>100 - 184</td>
+              <td>UnderWeight</td>
+            </tr>
+            <tr>
+              <td>185 - 250</td>
+              <td>Healthy/Normal</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-sm-9 text-left">
+          <h1 style="color: rgb(245, 47, 33);">The SoulFit</sup></h1>
+          <p style="font-size: large;">
+            This is the proposed system for StateFarm's Problem
+            statement. We estimated the information stored in various attributes
+            of a typical customer in a database such as; Age, BMI, noOfChildren, Profession, Income, savings, etc. into our Learning Model. 
+          </p>
+          <p style="font-size: medium;"> 
+            Based on the Adjusted Model Parameter Estimation and Statistical Inference, The BMI was discerened to contain the most information and most significant variable in Model Building.
+          </p>
+          <hr />
+          <h3>Working</h3>
+          <p style="font-size: larger;">
+            The SoulFit Insurance and Wellness tracker uses GCP for real time data logging and deploying the machine learning model on the cloud. The Python Script combines image processing with a powerful classifier algorithm to accurately predict the person's BMI based on his facial features. 
+
+          </p>
+
+          <p style="font-size: larger;">
+            Along with the BMI, other factors are combined using the same information gain used to identify the most significant parameter to arrive at a wellness score, which indicates how fit or unfit a person is. Based on continual tracking of this data in a periodic fashion gives us a trend of this score, which can help identify potential cusotmer behaviour patterns based on well-being and fitness.
+          </p>
+        </div>
+        <!-- <div class="col-sm-2 sidenav" style="height: 100%;">
+          <div class="well">
+            <p>ADS</p>
+          </div>
+          <div class="well">
+            <p>ADS</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <footer
+      class="container-fluid text-center"
+      style="position: fixed;width: 100%;"
+    >
+      <p>Footer Text</p>
+    </footer>
+    <script>
+      function calc() {
+        var total = 0;
+        var x = document.getElementById("bmi");
+        // var x = parseInt(y);
+        console.log(x.innerHTML);
+        if (x.innerHTML < 25) {
+          total = x.innerHTML * 10;
+        } else if (x.innerHTML < 30) {
+          total = x.innerHTML * 3.32;
+        } else {
+          total = x.innerHTML * 2.75;
+        }
+        document.getElementById("res").innerHTML = Math.round(total);
+      }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="databt.js"></script>
+  </body>
+</html>
