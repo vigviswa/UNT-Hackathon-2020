@@ -1,2 +1,2 @@
-# UNT-Hackathon-2020
+# BMI Prediction using Image Processing
 Life Insurance Index IncentivizeR
